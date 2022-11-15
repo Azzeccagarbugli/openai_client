@@ -14,7 +14,7 @@ void main() {
 
     client.close();
 
-    final req = client.models.list();
+    final req = client.models.list().data;
 
     expect(req, throwsStateError);
   });
