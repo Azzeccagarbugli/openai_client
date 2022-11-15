@@ -1,2 +1,2 @@
-export 'models/data.dart';
-export 'models/models.dart';
+export 'openai_completions/openai_completions.dart';
+export 'openai_models/openai_models.dart';

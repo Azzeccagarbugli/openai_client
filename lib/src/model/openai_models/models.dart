@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:equatable/equatable.dart';
-import 'package:openai_client/openai_client.dart';
+import 'package:openai_client/src/model/openai_models/data.dart';
 
 /// The models class.
 class Models extends Equatable {
