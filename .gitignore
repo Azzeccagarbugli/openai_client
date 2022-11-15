@@ -11,3 +11,6 @@ pubspec.lock
 
 # VS Code
 .vscode/
+
+# Environment variables
+.env.json
