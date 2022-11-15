@@ -6,3 +6,6 @@ const baseUrlOpenAI = 'https://api.openai.com/$apiVersion/';
 
 /// The base url for all endpoints for [Models].
 const apiModels = 'models';
+
+/// The base url for all endpoints for [Completions].
+const apiCompletions = 'completions';

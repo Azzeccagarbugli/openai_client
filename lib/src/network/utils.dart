@@ -20,7 +20,7 @@ extension RequestExtension<T> on Request<T> {
   /// Executes this request and returns the response's data, in one call.
   ///
   /// See: [Request.go], [Response.get]
-  Future<T> goAndGet() async {
+  Future<T> get data async {
     return (await go()).get();
   }
 }

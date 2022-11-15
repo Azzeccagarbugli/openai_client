@@ -1,5 +1,8 @@
 import 'package:http/http.dart' as http;
-import 'package:openai_client/openai_client.dart';
+import 'package:openai_client/src/client.dart';
+import 'package:openai_client/src/logger/logger.dart';
+import 'package:openai_client/src/model/model.dart';
+import 'package:openai_client/src/network/network.dart';
 
 /// List and describe the various models available in the API.
 ///
@@ -21,7 +24,7 @@ class OpenAIModels {
 
   /// Lists the currently available models, and provides
   /// basic information about each one such as the owner and availability.
-  Future<Models> list() async {
+  Request<Models> list() {
     Logger(
       title: 'Models',
       description: 'Fetching is started...',
@@ -35,30 +38,19 @@ class OpenAIModels {
       bodyDeserializer: (body) => Models.fromMap(body as Map<String, dynamic>),
     );
 
-    final res = await req.go();
+    Logger(
+      title: 'Models',
+      description: 'Returning the request...',
+      level: Level.info,
+      isActive: client.enableLogging,
+    ).log();
 
-    if (res.statusCode == 200) {
-      Logger(
-        title: 'Models',
-        description: 'The models are fetched successfully!',
-        level: Level.info,
-        isActive: client.enableLogging,
-      ).log();
-      return req.goAndGet();
-    } else if (res.statusCode == 403) {
-      throw Exception(
-        'Not authorized, API key is invalid or not provided.',
-      );
-    } else {
-      throw Exception(
-        'Models not fetched • Stauts code: ${res.statusCode}.',
-      );
-    }
+    return req;
   }
 
   /// Retrieves a model instance, providing basic information
   /// about the model such as the owner and permissioning.
-  Future<Data> byId({required String id}) async {
+  Request<Data> byId({required String id}) {
     Logger(
       title: 'Model by id',
       description: 'Fetching is started...',
@@ -66,7 +58,7 @@ class OpenAIModels {
       isActive: client.enableLogging,
     ).log();
 
-    final url = baseUrl.replace(path: '${baseUrl.path}/$id');
+    final url = baseUrl.resolve('$apiModels/$id');
 
     final req = Request(
       client: client,
@@ -74,24 +66,13 @@ class OpenAIModels {
       bodyDeserializer: (body) => Data.fromMap(body as Map<String, dynamic>),
     );
 
-    final res = await req.go();
+    Logger(
+      title: 'Model by id',
+      description: 'Returning the request...',
+      level: Level.info,
+      isActive: client.enableLogging,
+    ).log();
 
-    if (res.isOk) {
-      Logger(
-        title: 'Model by id',
-        description: 'The model was fetched successfully!',
-        level: Level.info,
-        isActive: client.enableLogging,
-      ).log();
-      return req.goAndGet();
-    } else if (res.statusCode == 403) {
-      throw Exception(
-        'Not authorized, API key is invalid or not provided.',
-      );
-    } else {
-      throw Exception(
-        'Models not fetched • Stauts code: ${res.statusCode}.',
-      );
-    }
+    return req;
   }
 }
