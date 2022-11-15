@@ -9,23 +9,33 @@ Future<void> main() async {
   final configuration = await loadConfigurationFromEnvFile();
 
   // Create a new client.
-  final openai = OpenAIClient(
+  final client = OpenAIClient(
     configuration: configuration,
     enableLogging: true,
   );
 
   // Fetch the models.
-  final models = await openai.models.list();
-
+  final models = await client.models.list().data;
   // Print the models list.
   log(models.toString());
 
   // Fetch a model by ID.
-  final modelId = await openai.models.byId(
-    id: 'text-davinci-002',
-  );
+  final modelId = await client.models.byId(id: 'text-davinci-002').data;
   // Print the model.
   log(modelId.toString());
+
+  // Create a completion.
+  final completion = await client.completions
+      .create(
+        model: 'text-davinci-002',
+        prompt: 'Batman was sleeping in his room when suddenly',
+      )
+      .data;
+  // Print the completion.
+  log(completion.toString());
+
+  // Close the client and terminate the [http] connection.
+  client.close();
 }
 
 /// Loads [OpenAIConfiguration] from environment variables
