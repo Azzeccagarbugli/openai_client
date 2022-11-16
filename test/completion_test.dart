@@ -1,0 +1,30 @@
+import 'package:openai_client/openai_client.dart';
+import 'package:test/test.dart';
+
+import 'test_utils.dart';
+
+void main() {
+  final client = OpenAIClient(
+    configuration: const OpenAIConfiguration(
+      apiKey: '',
+      organizationId: '',
+    ),
+  );
+
+  group('Completion', () {
+    test('Retrive the list of models', () async {
+      final req = client.completions.create(
+        model: '',
+        prompt: '',
+      );
+
+      expect(
+        req.httpRequest,
+        matchHttpRequest(
+          method: 'POST',
+          path: client.completions.baseUrl.path,
+        ),
+      );
+    });
+  });
+}
