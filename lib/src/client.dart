@@ -1,6 +1,7 @@
 import 'package:http/http.dart' as http;
-import 'package:openai_client/src/completion.dart';
+import 'package:openai_client/src/completions.dart';
 import 'package:openai_client/src/configuration.dart';
+import 'package:openai_client/src/edits.dart';
 import 'package:openai_client/src/models.dart';
 import 'package:openai_client/src/network/network.dart';
 
@@ -47,8 +48,11 @@ class OpenAIClient {
   /// Provides access to resources related to [Models].
   OpenAIModels get models => OpenAIModels(this);
 
-  /// Provides access to resources related to [Models].
+  /// Provides access to resources related to [Completions].
   OpenAICompletions get completions => OpenAICompletions(this);
+
+  /// Provides access to resources related to [Edits].
+  OpenAIEdits get edits => OpenAIEdits(this);
 
   /// Closes this client and frees allocated resources.
   ///

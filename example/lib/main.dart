@@ -34,6 +34,17 @@ Future<void> main() async {
   // Print the completion.
   log(completion.toString());
 
+  // Create a completion.
+  final edit = await client.edits
+      .create(
+        model: 'text-davinci-edit-001',
+        instruction: 'Fix the spelling mistakes',
+        input: 'Batmaen and Robin were playing ches in the Batcave',
+      )
+      .data;
+  // Print the edit.
+  log(edit.toString());
+
   // Close the client and terminate the [http] connection.
   client.close();
 }

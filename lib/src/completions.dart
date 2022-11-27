@@ -17,7 +17,7 @@ class OpenAICompletions {
 
   /// The base url for all endpoints for [Completions].
   ///
-  /// See more at [Completions](https://beta.openai.com/docs/api-reference/codels).
+  /// See more at [Completions](https://beta.openai.com/docs/api-reference/completions).
   final Uri baseUrl;
 
   /// Creates a completion for the provided prompt and parameters.
