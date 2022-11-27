@@ -12,7 +12,7 @@ void main() {
   );
 
   group('Completion', () {
-    test('Retrive the list of models', () async {
+    test('Create a completions', () async {
       final req = client.completions.create(
         model: '',
         prompt: '',
