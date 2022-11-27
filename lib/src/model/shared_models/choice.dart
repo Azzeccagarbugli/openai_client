@@ -8,8 +8,8 @@ class Choice extends Equatable {
   const Choice({
     required this.text,
     required this.index,
-    required this.logprobs,
-    required this.finishReason,
+    this.logprobs,
+    this.finishReason,
   });
 
   /// `dart:convert`
@@ -24,7 +24,7 @@ class Choice extends Equatable {
         text: data['text'] as String,
         index: data['index'] as int,
         logprobs: data['logprobs'] as dynamic,
-        finishReason: data['finish_reason'] as String,
+        finishReason: data['finish_reason'] as String?,
       );
 
   /// The choice text.
@@ -37,7 +37,7 @@ class Choice extends Equatable {
   final dynamic logprobs;
 
   /// The choice finish reason.
-  final String finishReason;
+  final String? finishReason;
 
   /// Mappping from [Choice] to [Map].
   Map<String, dynamic> toMap() => {
