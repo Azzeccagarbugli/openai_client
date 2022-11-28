@@ -12,3 +12,6 @@ const apiCompletions = 'completions';
 
 /// The base url for all endpoints for [Edits].
 const apiEdits = 'edits';
+
+/// The base url for all endpoints for [Images].
+const apiImages = 'images';
