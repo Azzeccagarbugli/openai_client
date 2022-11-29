@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:http/http.dart' as http;
 import 'package:openai_client/src/client.dart';
 import 'package:openai_client/src/logger/logger.dart';
@@ -31,7 +33,7 @@ class OpenAIImages {
     String? user,
   }) {
     Logger(
-      title: 'Images',
+      title: 'Images creation',
       description: 'Fetching is started...',
       level: Level.debug,
       isActive: client.enableLogging,
@@ -55,7 +57,101 @@ class OpenAIImages {
     );
 
     Logger(
-      title: 'Images',
+      title: 'Images creation',
+      description: 'Returning the request...',
+      level: Level.info,
+      isActive: client.enableLogging,
+    ).log();
+
+    return req;
+  }
+
+  /// Creates an edited or extended image given an original image and a prompt.
+  ///
+  /// A deeper explanation of the parameters can
+  /// be found in the [OpenAI API documentation](https://beta.openai.com/docs/api-reference/images/edit).
+  Request<Images> edit({
+    required File image,
+    File? mask,
+    required String prompt,
+    int n = 1,
+    ImageSize size = ImageSize.large,
+    ResponseFormat responseFormat = ResponseFormat.url,
+    String? user,
+  }) {
+    Logger(
+      title: 'Images editing',
+      description: 'Fetching is started...',
+      level: Level.debug,
+      isActive: client.enableLogging,
+    ).log();
+
+    final jsonBody = <String, dynamic>{
+      'image': image.path,
+      if (mask != null) 'mask': mask.path,
+      'prompt': prompt,
+      'n': n,
+      'size': size.dimension,
+      'response_format': responseFormat.format,
+      if (user != null) 'user': user,
+    };
+
+    final url = baseUrl.resolve(apiImagesEdits);
+
+    final req = Request(
+      client: client,
+      httpRequest: http.Request('POST', url),
+      bodyDeserializer: (body) => Images.fromMap(body as Map<String, dynamic>),
+      jsonBody: jsonBody,
+    );
+
+    Logger(
+      title: 'Images editing',
+      description: 'Returning the request...',
+      level: Level.info,
+      isActive: client.enableLogging,
+    ).log();
+
+    return req;
+  }
+
+  /// Creates a variation of a given image.
+  ///
+  /// A deeper explanation of the parameters can
+  /// be found in the [OpenAI API documentation](https://beta.openai.com/docs/api-reference/images/variation).
+  Request<Images> variation({
+    required File image,
+    int n = 1,
+    ImageSize size = ImageSize.large,
+    ResponseFormat responseFormat = ResponseFormat.url,
+    String? user,
+  }) {
+    Logger(
+      title: 'Images variation',
+      description: 'Fetching is started...',
+      level: Level.debug,
+      isActive: client.enableLogging,
+    ).log();
+
+    final jsonBody = <String, dynamic>{
+      'image': image.path,
+      'n': n,
+      'size': size.dimension,
+      'response_format': responseFormat.format,
+      if (user != null) 'user': user,
+    };
+
+    final url = baseUrl.resolve(apiImagesVariations);
+
+    final req = Request(
+      client: client,
+      httpRequest: http.Request('POST', url),
+      bodyDeserializer: (body) => Images.fromMap(body as Map<String, dynamic>),
+      jsonBody: jsonBody,
+    );
+
+    Logger(
+      title: 'Images variation',
       description: 'Returning the request...',
       level: Level.info,
       isActive: client.enableLogging,

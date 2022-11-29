@@ -18,3 +18,9 @@ const apiImages = 'images';
 
 /// The [generation] url for the creation of the [Images].
 const apiImagesGenerations = '$apiImages/generations';
+
+/// The [edit] url for the editing of the [Images].
+const apiImagesEdits = '$apiImages/edits';
+
+/// The [variation] url for the variation of the [Images].
+const apiImagesVariations = '$apiImages/variations';
