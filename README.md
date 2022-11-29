@@ -6,14 +6,14 @@ This is an unofficial client, written purely in Dart that allows you to _easily_
 
 # Getting Started
 
-In order to use the API, you need to have an API key. You can get one [**here**](https://beta.openai.com/account/api-keys) and once you have it, you can use it in the client passing the key itself in the `configuration` constructor.
+In order to use the API, you need to have an API key. You can get one [**here**](https://beta.openai.com/account/api-keys) and once you have it, you can use it in the client passing the key itself in the `OpenAIConfiguration` constructor.
 
 ```dart
 // Create the configuration
 final conf = OpenAIConfiguration(
     apiKey: 'Your API key',
-    organizationId: 'Your organization ID' // Optional,
-    );
+    organizationId: 'Your organization ID', // Optional
+);
 
 // Create a new client
 final client = OpenAIClient(configuration: conf);
