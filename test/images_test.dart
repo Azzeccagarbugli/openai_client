@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:openai_client/openai_client.dart';
 import 'package:test/test.dart';
 
@@ -22,6 +24,35 @@ void main() {
         matchHttpRequest(
           method: 'POST',
           path: client.images.baseUrl.resolve(apiImagesGenerations).path,
+        ),
+      );
+    });
+
+    test('Editing an image', () async {
+      final req = client.images.edit(
+        image: File(''),
+        prompt: '',
+      );
+
+      expect(
+        req.httpRequest,
+        matchHttpRequest(
+          method: 'POST',
+          path: client.images.baseUrl.resolve(apiImagesEdits).path,
+        ),
+      );
+    });
+
+    test('Variate an image', () async {
+      final req = client.images.variation(
+        image: File(''),
+      );
+
+      expect(
+        req.httpRequest,
+        matchHttpRequest(
+          method: 'POST',
+          path: client.images.baseUrl.resolve(apiImagesVariations).path,
         ),
       );
     });
