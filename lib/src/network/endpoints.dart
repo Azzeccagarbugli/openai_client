@@ -15,3 +15,6 @@ const apiEdits = 'edits';
 
 /// The base url for all endpoints for [Images].
 const apiImages = 'images';
+
+/// The [generation] url for the creation of the [Images].
+const apiImagesGenerations = '$apiImages/generations';

@@ -45,6 +45,16 @@ Future<void> main() async {
   // Print the edit.
   log(edit.toString());
 
+  // Create an image.
+  final image = await client.images
+      .create(
+        prompt: 'Batman is walking down the street with his friends',
+        n: 2,
+      )
+      .data;
+  // Print the image.
+  log(image.toString());
+
   // Close the client and terminate the [http] connection.
   client.close();
 }
