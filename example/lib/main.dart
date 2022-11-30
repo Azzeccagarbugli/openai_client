@@ -34,7 +34,7 @@ Future<void> main() async {
   // Print the completion.
   log(completion.toString());
 
-  // Create a completion.
+  // Create an edit.
   final edit = await client.edits
       .create(
         model: 'text-davinci-edit-001',
