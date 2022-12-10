@@ -29,7 +29,7 @@ class OpenAICompletions {
     String? prompt,
     String? suffix,
     int maxTokens = 16,
-    int temperature = 1,
+    double temperature = 1.0,
     int topP = 1,
     int n = 1,
     bool stream = false,
