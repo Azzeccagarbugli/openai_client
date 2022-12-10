@@ -28,8 +28,8 @@ class OpenAIEdits {
     String input = '',
     required String instruction,
     int n = 1,
-    int temperature = 1,
-    int topP = 1,
+    double temperature = 1.0,
+    double topP = 1.0,
   }) {
     Logger(
       title: 'Edits',
