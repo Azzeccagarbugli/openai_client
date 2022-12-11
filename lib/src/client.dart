@@ -2,6 +2,7 @@ import 'package:http/http.dart' as http;
 import 'package:openai_client/src/completions.dart';
 import 'package:openai_client/src/configuration.dart';
 import 'package:openai_client/src/edits.dart';
+import 'package:openai_client/src/embeddings.dart';
 import 'package:openai_client/src/images.dart';
 import 'package:openai_client/src/models.dart';
 import 'package:openai_client/src/network/network.dart';
@@ -57,6 +58,9 @@ class OpenAIClient {
 
   /// Provides access to resources related to [Images].
   OpenAIImages get images => OpenAIImages(this);
+
+  /// Provides access to resources related to [Embeddings].
+  OpenAIEmbeddings get embeddings => OpenAIEmbeddings(this);
 
   /// Closes this client and frees allocated resources.
   ///
