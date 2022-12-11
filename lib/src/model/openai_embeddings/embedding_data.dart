@@ -21,7 +21,7 @@ class EmbeddingData extends Equatable {
   /// Creates a new [EmbeddingData] instance from the given [map].
   factory EmbeddingData.fromMap(Map<String, dynamic> data) => EmbeddingData(
         object: data['object'] as String,
-        embedding: data['embedding'] as List<double>,
+        embedding: data['embedding'] as List<dynamic>,
         index: data['index'] as int,
       );
 
@@ -29,7 +29,7 @@ class EmbeddingData extends Equatable {
   final String object;
 
   /// The list of embeddings.
-  final List<double> embedding;
+  final List<dynamic> embedding;
 
   /// The index.
   final int index;

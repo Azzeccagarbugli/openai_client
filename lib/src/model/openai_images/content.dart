@@ -16,7 +16,7 @@ class Content extends Equatable {
 
   /// `dart:convert`
   ///
-  /// Parses the string and returns the resulting Json object as [Datum].
+  /// Parses the string and returns the resulting Json object as [Content].
   factory Content.fromJson(String data) {
     return Content.fromMap(json.decode(data) as Map<String, dynamic>);
   }
@@ -31,7 +31,7 @@ class Content extends Equatable {
 
   /// `dart:convert`
   ///
-  /// Converts [Datum] to a JSON string.
+  /// Converts [Content] to a JSON string.
   String toJson() => json.encode(toMap());
 
   /// Copy with extension.
