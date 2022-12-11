@@ -4,6 +4,15 @@ The [**OpenAI API**](https://beta.openai.com/docs/introduction) can be applied t
 
 This is an unofficial client, written purely in Dart that allows you to _easily_ use the API in your Dart or Flutter projects.
 
+# Installation
+
+You can install the package by adding it to your `pubspec.yaml` file.
+
+```yaml
+dependencies:
+  openai_client: last_version
+```
+
 # Getting Started
 
 In order to use the API, you need to have an API key. You can get one [**here**](https://beta.openai.com/account/api-keys) and once you have it, you can use it in the client passing the key itself in the `OpenAIConfiguration` constructor.

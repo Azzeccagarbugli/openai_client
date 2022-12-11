@@ -1,3 +1,9 @@
+## 0.0.3
+
+- [Embeddings API](https://beta.openai.com/docs/api-reference/embeddings).
+- Improved documentation.
+- Improved main example.
+
 ## 0.0.2
 
 - Working API
