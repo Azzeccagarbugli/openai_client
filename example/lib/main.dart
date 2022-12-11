@@ -55,6 +55,14 @@ Future<void> main() async {
   // Print the image.
   log(image.toString());
 
+  // Create an embedding.
+  final embedding = await client.embeddings.create(
+    model: 'text-similarity-babbage-001',
+    input: ['Batman was talking to Alfred'],
+  ).data;
+  // Print the embedding.
+  log(embedding.toString());
+
   // Close the client and terminate the [http] connection.
   client.close();
 }
