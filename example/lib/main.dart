@@ -63,6 +63,11 @@ Future<void> main() async {
   // Print the embedding.
   log(embedding.toString());
 
+  final moderation =
+      await client.moderations.create(input: 'Batman is a bad boy').data;
+  // Print the moderation.
+  log(moderation.toString());
+
   // Close the client and terminate the [http] connection.
   client.close();
 }

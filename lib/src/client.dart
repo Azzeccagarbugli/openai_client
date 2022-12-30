@@ -5,6 +5,7 @@ import 'package:openai_client/src/edits.dart';
 import 'package:openai_client/src/embeddings.dart';
 import 'package:openai_client/src/images.dart';
 import 'package:openai_client/src/models.dart';
+import 'package:openai_client/src/moderations.dart';
 import 'package:openai_client/src/network/network.dart';
 
 /// The class that represents a client connection to the **OpenAI** API.
@@ -61,6 +62,9 @@ class OpenAIClient {
 
   /// Provides access to resources related to [Embeddings].
   OpenAIEmbeddings get embeddings => OpenAIEmbeddings(this);
+
+  /// Provides access to resources related to [Moderations].
+  OpenAIModerations get moderations => OpenAIModerations(this);
 
   /// Closes this client and frees allocated resources.
   ///

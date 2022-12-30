@@ -27,3 +27,6 @@ const apiImagesVariations = '$apiImages/variations';
 
 /// The base url for all endpoints for [Embeddings].
 const apiEmbeddings = 'embeddings';
+
+/// The base url for all endpoints for [Moderation].
+const apiModerations = 'moderations';
