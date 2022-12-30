@@ -1,3 +1,8 @@
+## 0.0.4
+
+- [Moderations API](https://beta.openai.com/docs/api-reference/moderations).
+- Improved `Logger`.
+
 ## 0.0.3
 
 - [Embeddings API](https://beta.openai.com/docs/api-reference/embeddings).

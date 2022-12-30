@@ -43,7 +43,7 @@ final client = OpenAIClient(
 
 # Documentation
 
-The full documentation of the project is available [here](https://pub.dev/documentation/openai_client/latest/). All the methods are documented, and you can easily check the parameters that you can pass to them.
+The full documentation of the project is available [**here**](https://pub.dev/documentation/openai_client/latest/). All the methods are documented, and you can easily check the parameters that you can pass to them.
 
 ## Contributing
 
