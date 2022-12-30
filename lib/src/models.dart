@@ -30,7 +30,7 @@ class OpenAIModels {
       description: 'Fetching is started...',
       level: Level.debug,
       isActive: client.enableLogging,
-    ).log();
+    );
 
     final req = Request(
       client: client,
@@ -43,7 +43,7 @@ class OpenAIModels {
       description: 'Returning the request...',
       level: Level.info,
       isActive: client.enableLogging,
-    ).log();
+    );
 
     return req;
   }
@@ -56,7 +56,7 @@ class OpenAIModels {
       description: 'Fetching is started...',
       level: Level.debug,
       isActive: client.enableLogging,
-    ).log();
+    );
 
     final url = baseUrl.resolve('$apiModels/$id');
 
@@ -71,7 +71,7 @@ class OpenAIModels {
       description: 'Returning the request...',
       level: Level.info,
       isActive: client.enableLogging,
-    ).log();
+    );
 
     return req;
   }

@@ -16,7 +16,9 @@ class Logger {
     required this.description,
     required this.level,
     bool? isActive,
-  }) : _isActive = isActive ?? false;
+  }) : _isActive = isActive ?? false {
+    if (isActive != null && isActive) log();
+  }
 
   /// The title of the logger.
   final String title;

@@ -47,7 +47,7 @@ class OpenAICompletions {
       description: 'Fetching is started...',
       level: Level.debug,
       isActive: client.enableLogging,
-    ).log();
+    );
 
     final jsonBody = <String, dynamic>{
       'model': model,
@@ -81,7 +81,7 @@ class OpenAICompletions {
       description: 'Returning the request...',
       level: Level.info,
       isActive: client.enableLogging,
-    ).log();
+    );
 
     return req;
   }
