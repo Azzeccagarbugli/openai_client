@@ -61,6 +61,10 @@ final client = OpenAIClient(
 );
 ```
 
+# 🎯 Examples
+
+The provided example is a simple command line application that allows you to test the client. You can find it in the `example` folder.
+
 # 📚 Documentation
 
 The full documentation of the project is available [**here**](https://pub.dev/documentation/openai_client/latest/). All the methods are documented, and you can easily check the parameters that you can pass to them.
@@ -72,12 +76,8 @@ If you want to contribute to `openai_client`, please make sure to review the [co
 This project makes use of [GitHub issues](https://github.com/Azzeccagarbugli/openai_client/issues) for
 tracking **requests and bugs only**, so please _don't_ use issues for general questions and discussion.
 
-# 🎯 Examples
-
-The provided example is a simple command line application that allows you to test the client. You can find it in the `example` folder.
-
 # 🪪 License
 
 This project is licensed under the [**BSD-3-Clause**](https://raw.githubusercontent.com/Azzeccagarbugli/openai_client/main/LICENSE).
 
-And the project is not affiliated with **OpenAI** in any way.
+Furthermore, it's not affiliated with **OpenAI** in any way.
