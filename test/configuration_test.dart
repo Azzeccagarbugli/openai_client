@@ -48,5 +48,13 @@ void main() {
         expect(configuration.organizationId, isNotNull);
       },
     );
+
+    test(
+      'Parameters are not empty',
+      () {
+        expect(configuration.apiKey, isNotEmpty);
+        expect(configuration.organizationId, isNotEmpty);
+      },
+    );
   });
 }
