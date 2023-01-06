@@ -25,12 +25,10 @@ Future<void> main() async {
   log(modelId.toString());
 
   // Create a completion.
-  final completion = await client.completions
-      .create(
-        model: 'text-davinci-002',
-        prompt: 'Batman was sleeping in his room when suddenly',
-      )
-      .data;
+  final completion = await client.completions.create(
+    model: 'text-davinci-002',
+    prompt: 'Batman was sleeping in his room when suddenly',
+  );
   // Print the completion.
   log(completion.toString());
 

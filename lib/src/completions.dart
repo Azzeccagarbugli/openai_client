@@ -24,7 +24,7 @@ class OpenAICompletions {
   ///
   /// A deeper explanation of the parameters can be
   /// found in the [OpenAI API documentation](https://beta.openai.com/docs/api-reference/completions/create).
-  Request<Completion> create({
+  Future<Completion> create({
     required String model,
     String? prompt,
     String? suffix,
@@ -41,7 +41,7 @@ class OpenAICompletions {
     int bestOf = 1,
     Map<String, dynamic>? logitBias,
     String? user,
-  }) {
+  }) async {
     Logger(
       title: 'Completions',
       description: 'Fetching is started...',
@@ -76,13 +76,12 @@ class OpenAICompletions {
       jsonBody: jsonBody,
     );
 
-    Logger(
-      title: 'Completions',
-      description: 'Returning the request...',
-      level: Level.info,
-      isActive: client.enableLogging,
-    );
+    final res = await req.go();
 
-    return req;
+    return handleNetworkRequest(
+      client,
+      res,
+      req,
+    ) as Future<Completion>;
   }
 }
