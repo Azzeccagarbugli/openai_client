@@ -19,7 +19,7 @@ void main() {
       );
 
       expect(
-        req.httpRequest,
+        req,
         matchHttpRequest(
           method: 'POST',
           path: client.completions.baseUrl.path,
