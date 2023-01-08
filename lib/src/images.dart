@@ -103,6 +103,7 @@ class OpenAIImages {
       httpRequest: http.Request('POST', url),
       bodyDeserializer: (body) => Images.fromMap(body as Map<String, dynamic>),
       jsonBody: jsonBody,
+      customHeaders: const {'Content-Type': 'multipart/form-data'},
     );
 
     Logger(
@@ -148,6 +149,7 @@ class OpenAIImages {
       httpRequest: http.Request('POST', url),
       bodyDeserializer: (body) => Images.fromMap(body as Map<String, dynamic>),
       jsonBody: jsonBody,
+      customHeaders: const {'Content-Type': 'multipart/form-data'},
     );
 
     Logger(
