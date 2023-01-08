@@ -115,15 +115,20 @@ class Request<T> {
   Map<String, String> _createHeaders() {
     final headers = <String, String>{};
 
+    headers.addAll(publicActionAuthHeader(
+      configuration: client.configuration,
+    ));
+
+    if (customHeaders != null) {
+      headers.addAll(customHeaders!);
+      return headers;
+    }
+
     if (jsonBody != null) {
       headers.addAll({
         'Content-Type': 'application/json',
       });
     }
-
-    headers.addAll(publicActionAuthHeader(
-      configuration: client.configuration,
-    ));
 
     return headers;
   }
