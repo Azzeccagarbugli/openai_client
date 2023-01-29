@@ -1,3 +1,8 @@
+## 0.0.5
+
+- Custom headers for the requests.
+- Dart 3 compatibility.
+
 ## 0.0.4
 
 - [Moderations API](https://beta.openai.com/docs/api-reference/moderations).
