@@ -21,6 +21,7 @@ class Request<T> {
     required this.httpRequest,
     this.jsonBody,
     this.bodyDeserializer,
+    this.customHeaders,
   });
 
   /// The [OpenAIClient] this request was created with.
@@ -39,6 +40,12 @@ class Request<T> {
 
   /// The function used to transform the json response into [T].
   final BodyDeserializer<T>? bodyDeserializer;
+
+  /// The custom headers that will be sent with the request.
+  ///
+  /// These headers will be merged with the headers
+  /// from [httpRequest] and the authentication will be preserved.
+  final Map<String, String>? customHeaders;
 
   /// Execute this [Request] and return its [Response].
   ///
@@ -108,15 +115,20 @@ class Request<T> {
   Map<String, String> _createHeaders() {
     final headers = <String, String>{};
 
+    headers.addAll(publicActionAuthHeader(
+      configuration: client.configuration,
+    ));
+
+    if (customHeaders != null) {
+      headers.addAll(customHeaders!);
+      return headers;
+    }
+
     if (jsonBody != null) {
       headers.addAll({
         'Content-Type': 'application/json',
       });
     }
-
-    headers.addAll(publicActionAuthHeader(
-      configuration: client.configuration,
-    ));
 
     return headers;
   }
