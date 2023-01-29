@@ -39,7 +39,7 @@ class OpenAIEmbeddings {
 
     final jsonBody = <String, dynamic>{
       'model': model,
-      'input': input.map((e) => '$e\n').toString(),
+      'input': input,
       if (user != null) 'user': user,
     };
 
