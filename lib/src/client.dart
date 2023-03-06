@@ -1,4 +1,5 @@
 import 'package:http/http.dart' as http;
+import 'package:openai_client/src/chat.dart';
 import 'package:openai_client/src/completions.dart';
 import 'package:openai_client/src/configuration.dart';
 import 'package:openai_client/src/edits.dart';
@@ -53,6 +54,9 @@ class OpenAIClient {
 
   /// Provides access to resources related to [Completions].
   OpenAICompletions get completions => OpenAICompletions(this);
+
+  /// Provides access to resources related to [Completions].
+  OpenAIChat get chat => OpenAIChat(this);
 
   /// Provides access to resources related to [Edits].
   OpenAIEdits get edits => OpenAIEdits(this);

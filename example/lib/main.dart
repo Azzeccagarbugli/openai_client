@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:openai_client/openai_client.dart';
+import 'package:openai_client/src/model/openai_chat/chat_message.dart';
 
 Future<void> main() async {
   // Load app credentials from environment variables or file.
@@ -33,6 +34,18 @@ Future<void> main() async {
       .data;
   // Print the completion.
   log(completion.toString());
+
+  // Create a chat.
+  final chat = await client.chat
+      .create(
+          model: 'gpt-3.5-turbo',
+          message: const ChatMessage(
+            role: 'user',
+            content: 'How do you think is Batman dealing with Robin recently?',
+          ))
+      .data;
+  // Print the chat.
+  log(chat.toString());
 
   // Create an edit.
   final edit = await client.edits

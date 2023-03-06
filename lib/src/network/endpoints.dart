@@ -10,6 +10,9 @@ const apiModels = 'models';
 /// The base url for all endpoints for [Completions].
 const apiCompletions = 'completions';
 
+/// The base url for all endpoints for [Chat].
+const apiChat = 'chat/completions';
+
 /// The base url for all endpoints for [Edits].
 const apiEdits = 'edits';
 
