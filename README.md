@@ -10,8 +10,9 @@ This is an unofficial client, written purely in Dart that allows you to _easily_
 | :-----------------------------------------------------------------------: | :-----------------: | :-------------------: |
 |      [**Models**](https://beta.openai.com/docs/api-reference/models)      |   `OpenAIModels`    |          ✅           |
 | [**Completions**](https://beta.openai.com/docs/api-reference/completions) | `OpenAICompletions` |          ✅           |
+|        [**Chat**](https://beta.openai.com/docs/api-reference/chat)        |    `OpenAIChat`     |          ✅           |
 |       [**Edits**](https://beta.openai.com/docs/api-reference/edits)       |    `OpenAIEdits`    |          ✅           |
-|      [**Images**](https://beta.openai.com/docs/api-reference/models)      |   `OpenAIImages`    |          ✅           |
+|      [**Images**](https://beta.openai.com/docs/api-reference/images)      |   `OpenAIImages`    |          ✅           |
 |  [**Embeddings**](https://beta.openai.com/docs/api-reference/embeddings)  | `OpenAIEmbeddings`  |          ✅           |
 |       [**Files**](https://beta.openai.com/docs/api-reference/files)       |    `Not present`    |          ❌           |
 |  [**Fine-tunes**](https://beta.openai.com/docs/api-reference/fine-tunes)  |    `Not present`    |          ❌           |

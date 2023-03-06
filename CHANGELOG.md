@@ -1,3 +1,7 @@
+## 0.0.6
+
+- [Chat API](https://beta.openai.com/docs/api-reference/chat).
+
 ## 0.0.5
 
 - Custom headers for the requests.
