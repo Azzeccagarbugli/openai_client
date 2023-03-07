@@ -36,14 +36,15 @@ Future<void> main() async {
   log(completion.toString());
 
   // Create a chat.
-  final chat = await client.chat
-      .create(
-          model: 'gpt-3.5-turbo',
-          message: const ChatMessage(
-            role: 'user',
-            content: 'How do you think is Batman dealing with Robin recently?',
-          ))
-      .data;
+  final chat = await client.chat.create(
+    model: 'gpt-3.5-turbo',
+    message: const [
+      ChatMessage(
+        role: 'user',
+        content: 'How do you think is Batman dealing with Robin recently?',
+      )
+    ],
+  ).data;
   // Print the chat.
   log(chat.toString());
 
@@ -76,8 +77,7 @@ Future<void> main() async {
   // Print the embedding.
   log(embedding.toString());
 
-  final moderation =
-      await client.moderations.create(input: 'Batman is a bad boy').data;
+  final moderation = await client.moderations.create(input: 'Batman is a bad boy').data;
   // Print the moderation.
   log(moderation.toString());
 
@@ -90,12 +90,5 @@ Future<void> main() async {
 ///
 /// Returns `null` if the variables do not exist.
 Future<OpenAIConfiguration> loadConfigurationFromEnvFile() async {
-  final file = File('.env.json');
-  final content = await file.readAsString();
-  final json = jsonDecode(content) as Map<String, dynamic>;
-
-  return OpenAIConfiguration(
-    apiKey: json['API_KEY'] as String,
-    organizationId: json['ORG_ID'] as String,
-  );
+  return OpenAIConfiguration(apiKey: "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");
 }

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:http/http.dart' as http;
 import 'package:openai_client/src/client.dart';
 import 'package:openai_client/src/logger/logger.dart';
@@ -25,7 +27,7 @@ class OpenAIChat {
   /// found in the [OpenAI API documentation](https://beta.openai.com/docs/api-reference/chat/create).
   Request<Chat> create({
     required String model,
-    required ChatMessage message,
+    required List<ChatMessage> message,
     double? temperature = 1.0,
     double? topP = 1.0,
     int? n = 1,
@@ -53,7 +55,7 @@ class OpenAIChat {
 
     final jsonBody = <String, dynamic>{
       'model': model,
-      'message': message.toJson(),
+      'messages': message.map((e) => e.toMap()).toList(),
       'temperature': temperature,
       'top_p': topP,
       'n': n,
