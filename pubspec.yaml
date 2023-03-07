@@ -15,7 +15,7 @@ screenshots:
 dependencies:
   equatable: ^2.0.5
   http: ^0.13.5
-  meta: ^1.9.0
+  meta: ^1.8.0
 
 dev_dependencies:
   collection: ^1.17.1
