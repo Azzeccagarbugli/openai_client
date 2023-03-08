@@ -16,10 +16,12 @@ void main() {
     test('Create a chat', () async {
       final req = client.chat.create(
         model: '',
-        message: const ChatMessage(
-          role: '',
-          content: '',
-        ),
+        messages: const [
+          ChatMessage(
+            role: '',
+            content: '',
+          ),
+        ],
       );
 
       expect(
