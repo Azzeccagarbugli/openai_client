@@ -1,3 +1,7 @@
+## 0.0.7
+
+- Fix [Chat API](https://beta.openai.com/docs/api-reference/chat) multiple messages _(thanks to [emirchus](https://github.com/Azzeccagarbugli/openai_client/pull/15))_.
+
 ## 0.0.6
 
 - [Chat API](https://beta.openai.com/docs/api-reference/chat).
