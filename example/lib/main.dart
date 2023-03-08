@@ -36,14 +36,12 @@ Future<void> main() async {
   log(completion.toString());
 
   // Create a chat.
-  final chat = await client.chat
-      .create(
-          model: 'gpt-3.5-turbo',
-          message: const ChatMessage(
-            role: 'user',
-            content: 'How do you think is Batman dealing with Robin recently?',
-          ))
-      .data;
+  final chat = await client.chat.create(model: 'gpt-3.5-turbo', message: const [
+    ChatMessage(
+      role: 'user',
+      content: 'How do you think is Batman dealing with Robin recently?',
+    )
+  ]).data;
   // Print the chat.
   log(chat.toString());
 
@@ -76,8 +74,7 @@ Future<void> main() async {
   // Print the embedding.
   log(embedding.toString());
 
-  final moderation =
-      await client.moderations.create(input: 'Batman is a bad boy').data;
+  final moderation = await client.moderations.create(input: 'Batman is a bad boy').data;
   // Print the moderation.
   log(moderation.toString());
 

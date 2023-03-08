@@ -1,6 +1,6 @@
 name: openai_client
 description: An unofficial, platform independent, client for accessing different AI models developed by OpenAI.
-version: 0.0.6
+version: 0.0.7
 environment:
   sdk: ">=2.18.2 <3.0.0"
 
