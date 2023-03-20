@@ -26,14 +26,14 @@ class OpenAIChat {
   Request<Chat> create({
     required String model,
     required List<ChatMessage> messages,
-    double? temperature = 1.0,
-    double? topP = 1.0,
+    double temperature = 1.0,
+    double topP = 1.0,
     int? n = 1,
     bool stream = false,
     String? stop,
     int? maxTokens,
-    int? presencePenalty = 0,
-    int? frequencyPenalty = 0,
+    double presencePenalty = 0.0,
+    double frequencyPenalty = 0.0,
     Map<String, dynamic>? logitBias,
     String? user,
   }) {
@@ -44,12 +44,22 @@ class OpenAIChat {
       isActive: client.enableLogging,
     );
 
-    if (temperature != null) {
-      assert(
-        temperature > 0 && temperature <= 2,
-        'Temperature must be between 0 and 2',
-      );
-    }
+    assert(
+      temperature > 0.0 && temperature <= 2.0,
+      'Temperature must be between 0.0 and 2.0',
+    );
+    assert(
+      presencePenalty >= -2.0 && presencePenalty <= 2.0,
+      'presencePenalty must be between -2.0 and 2.0',
+    );
+    assert(
+      frequencyPenalty >= -2.0 && frequencyPenalty <= 2.0,
+      'frequencyPenalty must be between -2.0 and 2.0',
+    );
+    assert(
+      topP >= 0.0 && topP <= 1.0,
+      'topP must be between 0.0 and 1.0',
+    );
 
     final jsonBody = <String, dynamic>{
       'model': model,
