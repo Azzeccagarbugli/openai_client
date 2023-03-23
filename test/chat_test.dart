@@ -1,5 +1,4 @@
 import 'package:openai_client/openai_client.dart';
-import 'package:openai_client/src/model/openai_chat/openai_chat.dart';
 import 'package:test/test.dart';
 
 import 'test_utils.dart';

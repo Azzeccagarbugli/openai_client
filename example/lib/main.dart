@@ -3,7 +3,6 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:openai_client/openai_client.dart';
-import 'package:openai_client/src/model/openai_chat/chat_message.dart';
 
 Future<void> main() async {
   // Load app credentials from environment variables or file.
