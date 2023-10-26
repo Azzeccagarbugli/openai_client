@@ -1,3 +1,7 @@
+## 0.0.8
+
+- Upgrade `http` to v1.0.0.
+
 ## 0.0.7
 
 - Fix [Chat API](https://beta.openai.com/docs/api-reference/chat) multiple messages _(thanks to [emirchus](https://github.com/Azzeccagarbugli/openai_client/pull/15))_.
